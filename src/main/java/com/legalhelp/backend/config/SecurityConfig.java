@@ -52,20 +52,18 @@ public class SecurityConfig {
                         .requestMatchers("/user/**").hasRole("USER")
                         .requestMatchers("/lawyer/**").hasRole("LAWYER")
                         .requestMatchers("/consultant/**").hasRole("CONSULTANT")
-                        .anyRequest().authenticated()
-                )
+                        .anyRequest().authenticated())
 
                 // Disable form login (for REST API)
-//                .formLogin(form -> form.disable())
-//
-//                // Disable basic auth
-//                .httpBasic(basic -> basic.disable())
+                // .formLogin(form -> form.disable())
+                //
+                // // Disable basic auth
+                // .httpBasic(basic -> basic.disable())
 
                 // No session management (optional for JWT)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-
 
         return http.build();
     }
@@ -89,8 +87,8 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-//                        .allowedOrigins("http://localhost:5173", "http://localhost:3000")
                         .allowedOrigins("http://localhost:5173")
+                        .allowedOrigins("http://159.89.171.144")
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
