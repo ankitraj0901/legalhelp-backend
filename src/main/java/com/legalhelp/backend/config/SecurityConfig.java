@@ -89,7 +89,7 @@ public class SecurityConfig {
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:5173")
                         .allowedOrigins("http://159.89.171.144") // Digital Ocean IP
-                        .allowedOrigins("https://legalhelp.dev") // Digital Ocean IP
+                        .allowedOrigins("https://legalhelp.dev") // new domain name
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
