@@ -87,7 +87,8 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173", "https://legalhelp.dev", "http://159.89.171.144")
+                        .allowedOrigins("http://localhost:5173", "https://legalhelp.dev", "https://www.legalhelp.dev",
+                                "http://159.89.171.144")
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
