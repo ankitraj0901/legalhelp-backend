@@ -87,9 +87,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173")
-                        .allowedOrigins("http://159.89.171.144") // Digital Ocean IP
-                        .allowedOrigins("https://legalhelp.dev") // new domain name
+                        .allowedOrigins("http://localhost:5173", "https://legalhelp.dev", "http://159.89.171.144")
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
