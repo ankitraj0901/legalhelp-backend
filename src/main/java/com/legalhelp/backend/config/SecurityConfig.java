@@ -52,6 +52,11 @@ public class SecurityConfig {
                         .requestMatchers("/user/**").hasRole("USER")
                         .requestMatchers("/lawyer/**").hasRole("LAWYER")
                         .requestMatchers("/consultant/**").hasRole("CONSULTANT")
+                        .requestMatchers("documents/request/**").permitAll()
+                        .requestMatchers("/documents/request/**").hasAnyRole("CA","LAWYER","CONSULTANT")
+                        .requestMatchers("/documents/upload?**").hasRole("USER")
+                        .requestMatchers("/documents/**").permitAll()
+                        .requestMatchers("uploads/**").permitAll()
                         .anyRequest().authenticated())
 
                 // Disable form login (for REST API)

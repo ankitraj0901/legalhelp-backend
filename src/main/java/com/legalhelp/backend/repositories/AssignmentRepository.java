@@ -14,5 +14,6 @@ public interface AssignmentRepository extends JpaRepository<Assignments,Long> {
     List<Assignments> findByProfessional(User professional);
     Optional<Assignments> findByClint_UserIdAndProfessional_UserId(Long clientId, Long professionalId);
     long countByProfessional_UserId(Long professionalId);
+//    List<Long>getAssignmentIdsForUser(Long clintId);
 
 }

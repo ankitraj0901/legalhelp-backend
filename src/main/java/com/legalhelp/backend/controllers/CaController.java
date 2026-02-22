@@ -2,15 +2,14 @@ package com.legalhelp.backend.controllers;
 
 import com.legalhelp.backend.dto.AssignedResponseDTO;
 import com.legalhelp.backend.dto.CaResponseDTO;
+import com.legalhelp.backend.dto.UpdateAssignmentStatusRequest;
 import com.legalhelp.backend.service.CaService;
 import com.legalhelp.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -32,18 +31,18 @@ public class CaController {
         return ResponseEntity.ok(caService.getAssignmentCount(professionalId));
     }
 
-    // get all client deadlines from database;
-    //Incomplete
-//    @GetMapping("clients-deadline/{professionalId}")
-//    public ResponseEntity<?> getAssignmentDeadlines(@PathVariable Long professionalId) {
-//        return ResponseEntity.ok(caService);
-//    }
+    @PutMapping("/update-status")
+    public ResponseEntity<?> updateAssignmentStatus(
+            @RequestBody UpdateAssignmentStatusRequest request) {
 
-    //get all new clients(assigned today)
-//    @GetMapping("new-clients/{professionalid}")
-////    public ResponseEntity<?> getAllNewClients(@PathVariable Long professionalId) {
-////        return ResponseEntity.ok(caService)
-////    }
+        caService.updateAssignmentStatus(
+                request.getAssignmentId(),
+                request.getStatus()
+        );
+        return ResponseEntity.ok("Assignment status updated.");
+    }
+
+
 
 
 }

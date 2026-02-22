@@ -1,7 +1,11 @@
 package com.legalhelp.backend.service;
 
 import com.legalhelp.backend.dto.AssignedResponseDTO;
+import com.legalhelp.backend.dto.UpdateAssignmentStatusRequest;
+import com.legalhelp.backend.entity.AssignmentStatus;
+import com.legalhelp.backend.entity.Assignments;
 import com.legalhelp.backend.repositories.AssignmentRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,6 +50,13 @@ public class CaService {
         return (int) assignmentRepository.countByProfessional_UserId(professionalId);
     }
 
-    //getting all the deadlines of the clients
+    @Transactional
+    public void updateAssignmentStatus(Long assignmentId, AssignmentStatus status) {
+        Assignments assignment = assignmentRepository.findById(assignmentId)
+                .orElseThrow(()-> new RuntimeException("Assignment Not Found.!"));
+
+        assignment.setAssignmentStatus(status);
+    }
+
 
 }
