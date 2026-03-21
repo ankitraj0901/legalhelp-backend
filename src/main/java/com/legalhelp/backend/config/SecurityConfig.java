@@ -57,6 +57,7 @@ public class SecurityConfig {
                         .requestMatchers("/documents/upload?**").hasRole("USER")
                         .requestMatchers("/documents/**").permitAll()
                         .requestMatchers("uploads/**").permitAll()
+                        .requestMatchers("/api/**").permitAll()
                         .anyRequest().authenticated())
 
                 // Disable form login (for REST API)
