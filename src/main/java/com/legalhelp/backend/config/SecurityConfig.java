@@ -82,6 +82,7 @@ public class SecurityConfig {
                         .requestMatchers("/documents/**").permitAll()
                         .requestMatchers("/uploads/**").permitAll()
                         .requestMatchers("/api/**").permitAll()
+                        .requestMatchers("/test").permitAll()
 //                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()  //added while deployed version was not working
                         .anyRequest().authenticated())
                 //Testing code deployment
