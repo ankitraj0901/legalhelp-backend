@@ -38,6 +38,7 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllConsultant(clientId));
     }
 
+    //tesing backend test code
     @GetMapping("/test")
     public ResponseEntity<?> test() {
         return ResponseEntity.ok("Ok");
