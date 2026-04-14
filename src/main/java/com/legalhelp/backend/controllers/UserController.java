@@ -38,4 +38,8 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllConsultant(clientId));
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<?> test() {
+        return ResponseEntity.ok("Ok");
+    }
 }
