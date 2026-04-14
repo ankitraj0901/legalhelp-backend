@@ -84,6 +84,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/**").permitAll()
 //                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()  //added while deployed version was not working
                         .anyRequest().authenticated())
+                //Testing code deployment
 
                 // Disable form login (for REST API)
                 // .formLogin(form -> form.disable())
